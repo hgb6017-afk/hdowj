@@ -1,0 +1,13 @@
+DLS LiteFX V2.0.1 BUILD FIX
+
+Fixes the two ARC compile errors around Objective-C IMP function pointers stored in NSValue.
+
+Changed:
+  return [v pointerValue];
+  -> return (IMP)[v pointerValue];
+
+Changed:
+  [NSValue valueWithPointer:orig]
+  -> [NSValue valueWithPointer:(const void *)orig]
+
+No graphics/filter logic changed.
